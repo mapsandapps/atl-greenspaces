@@ -16,9 +16,7 @@
   <script type="text/javascript" src="hikes.js"></script>
   <script type="text/javascript" src="../data/trees.js"></script>
   <style type="text/css">
-/*  #map {
-    height: 500px;
-  }*/
+  
   html, body{
     padding: 0;
     margin: 0 auto;
@@ -31,21 +29,20 @@
   }
 
   #header {
-    float: top;
     width: 100%;
     height: 36px;
   }
 
   #map {
-    float: top;
     width: 100%;
-    height: 100%;
-    min-height: 100%;
-    overflow: scroll;
+    height: -mox-calc(100% - 36px - 50px - 50px); /*last value is for padding*/
+    height: -webkit-calc(100% - 36px - 50px - 50px);
+    height: calc(100% - 36px - 50px - 50px);
   }
 
   #links {
-    float: bottom;
+    overflow: auto;
+    height: 50px;
     width: 100%;
   }
   </style>
