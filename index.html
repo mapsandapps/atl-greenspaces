@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+  <title>Atlanta Greenspaces</title>
+  <link rel="icon" 
+    type="image/png" 
+    href="http://mollietaylor.com/favicon.png">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+  <![endif]-->
+  <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://mollietaylor.com/files/leaflet.ajax.js"></script>
+  <script type="text/javascript" src="hikes.js"></script>
+  <script type="text/javascript" src="../data/trees.js"></script>
+  <style type="text/css">
+/*  #map {
+    height: 500px;
+  }*/
+  html, body{
+    padding: 0;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #header {
+    float: top;
+    width: 100%;
+    height: 36px;
+  }
+
+  #map {
+    float: top;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    overflow: scroll;
+  }
+
+  #links {
+    float: bottom;
+    width: 100%;
+  }
+  </style>
+</head>
+<body>
+<div id="header">
+  <h1>Atlanta Greenspaces</h1>
+</div>
+<div id="map"></div>
+<div id="links">
+  Map icons provided by <a href="http://mapicons.nicolasmollet.com/">Nicolas Mollet, Axel Rodriguez, and Datz Magazine</a>.<br>
+  Champion Trees data from <a href="http://treesatlanta.org/our-programs/atlantas-champion-trees/">Trees Atlanta</a>.<br>
+</div>
+
+<script type="text/javascript">
+
+  var treesIcon = L.icon({
+    iconUrl: '../arbol.png',
+    iconSize: [21, 25],
+    shadowSize: [0, 0],
+    iconAnchor: [11, 25],
+    shadowAnchor: [0, 0],
+    popupAnchor: [0, -25]
+  });
+
+  var bookIcon = L.icon({
+    iconUrl: 'book.png',
+    iconSize: [32, 37],
+    iconAnchor: [16, 37],
+    popupAnchor: [0, -37]
+  });
+
+  var webIcon = L.icon({
+    iconUrl: 'world.png',
+    iconSize: [32, 37],
+    iconAnchor: [16, 37],
+    popupAnchor: [0, -37]
+  });
+
+  var hereIcon = L.icon({
+    iconUrl: 'youarehere-2.png',
+    iconSize: [32, 37],
+    iconAnchor: [16, 37],
+    popupAnchor: [0, -37]
+  });
+
+
+  // map.locate({setView: false, watch: true})
+  //   .on('locationfound', function(e){
+  //       var marker = L.marker([e.latitude, e.longitude], {icon: hereIcon})
+  //       .bindPopup('You are here');
+  //       map.addLayer(marker);
+  //   })
+  //   .on('locationerror', function(e){
+  //       console.log(e);
+  //       alert("Location access denied.");
+  //   });
+
+  function onEachHike(feature, layer) {
+    var chapterNum = function() {
+      if (typeof feature.properties.number === 'number') {
+        return "<br>Chapter: " + feature.properties.number;
+      } else if (feature.properties.number) {
+        return "<br>Chapters: " + feature.properties.number;
+      } else {
+        return ""
+      };
+    };
+
+    var note = function() {
+      if (feature.properties.note) {
+        return "<br>Note: " + feature.properties.note;
+      } else {
+        return ""
+      };
+    };
+
+    layer.bindPopup(feature.properties.name + chapterNum(feature.properties.number) + note(feature.properties.note))
+  };
+
+  var treesLayer = L.geoJson(trees, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup(feature.properties.Name + "<br>" + feature.properties.Description);
+    },
+    pointToLayer: function(feature, latlng) {
+      return L.marker(latlng, {icon: treesIcon});
+    }
+  });
+
+  var hikeLayer = L.geoJson(hikesList, {
+    onEachFeature: onEachHike,
+    pointToLayer: function(feature, latlng) {
+      // return L.marker(latlng, {icon: bookIcon});
+      switch (feature.properties.book) {
+        case true: return L.marker(latlng, {icon: bookIcon});
+        case false: return L.marker(latlng, {icon: webIcon});
+      }
+    }
+  });
+
+  var map = L.map('map', {
+    center: new L.LatLng(33.75, -84.38), 
+    zoom: 10,
+    layers: [hikeLayer, treesLayer]
+  });
+
+  var overlayMaps = {
+    "Greenspaces": hikeLayer,
+    "Champion Trees": treesLayer
+  };
+
+  L.control.layers(null, overlayMaps, {
+    collapsed: false
+  }).addTo(map);
+
+  // or tiles #7:
+  L.tileLayer('http://tile.cloudmade.com/d2268fb4d6a84b33b508fa5640063baf/997/256/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 13
+  }).addTo(map);
+
+</script>
+
+
+
+</body>
+</html>
