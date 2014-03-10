@@ -10,7 +10,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.378809,33.869461]
+			"coordinates": [-84.380046,33.866132]
 		}
 	},{
 		"type": "Feature",
@@ -43,7 +43,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.305243,33.808731]
+			"coordinates": [-84.296525,33.802700]
 		}
 	},{
 		"type": "Feature",
@@ -76,7 +76,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.360115,33.807731]
+			"coordinates": [-84.352171,33.809776]
 		}
 	},{
 		"type": "Feature",
@@ -87,7 +87,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.436897,33.884171]
+			"coordinates": [-84.441639,33.878001]
 		}
 	},{
 		"type": "Feature",
@@ -98,7 +98,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.448317,33.890687]
+			"coordinates": [-84.454363,33.871516]
 		}
 	},{
 		"type": "Feature",
@@ -164,7 +164,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.322571,33.909441]
+			"coordinates": [-84.326311,33.909468]
 		}
 	},{
 		"type": "Feature",
@@ -230,7 +230,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.655731,33.672461]
+			"coordinates": [-84.664472,33.667348]
 		}
 	},{
 		"type": "Feature",
@@ -274,7 +274,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.299061,33.466694]
+			"coordinates": [-84.305266,33.471928]
 		}
 	},{
 		"type": "Feature",
@@ -307,7 +307,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.348071,33.601681]
+			"coordinates": [-84.346638,33.600881]
 		}
 	},{
 		"type": "Feature",
@@ -329,7 +329,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.227629,33.867921]
+			"coordinates": [-84.232311,33.863313]
 		}
 	},{
 		"type": "Feature",
@@ -340,7 +340,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.120083,33.666122]
+			"coordinates": [-84.116353,33.671821]
 		}
 	},{
 		"type": "Feature",
@@ -351,7 +351,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.149952,33.808107]
+			"coordinates": [-84.162063,33.810553]
 		}
 	},{
 		"type": "Feature",
@@ -418,7 +418,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.249558,33.989159]
+			"coordinates": [-84.242723,33.986757]
 		}
 	},{
 		"type": "Feature",
@@ -440,7 +440,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.405373,34.066666]
+			"coordinates": [-84.406529,34.063144]
 		}
 	},{
 		"type": "Feature",
@@ -452,6 +452,17 @@ hikesList = {
 		"geometry": {
 			"type": "Point",
 			"coordinates": [-84.361669,33.964347]
+		}
+	},{
+		"type": "Feature",
+		"properties": {
+			"name": "Dunwoody Nature Center",
+			"number": 52,
+			"book": true
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [-84.333447,33.956751]
 		}
 	},{
 		"type": "Feature",
@@ -517,7 +528,7 @@ hikesList = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [-84.352126,34.011938]
+			"coordinates": [-84.350218,34.006687]
 		}
 	},{
 		"type": "Feature",
