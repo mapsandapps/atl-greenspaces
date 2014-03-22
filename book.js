@@ -6,7 +6,7 @@ hikesList = {
 		"properties": {
 			"name": "Blue Heron Nature Preserve",
 			"number": 1,
-			"book": true
+			"distance": 1.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -17,7 +17,7 @@ hikesList = {
 		"properties": {
 			"name": "Constitution Lakes Park",
 			"number": 2,
-			"book": true
+			"distance": 2.25
 		},
 		"geometry": {
 			"type": "Point",
@@ -28,7 +28,7 @@ hikesList = {
 		"properties": {
 			"name": "Clyde Shepherd Nature Preserve",
 			"number": 3,
-			"book": true
+			"distance": 1.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -39,7 +39,7 @@ hikesList = {
 		"properties": {
 			"name": "South Peachtree Creek Trail",
 			"number": 4,
-			"book": true
+			"distance": 3.25
 		},
 		"geometry": {
 			"type": "Point",
@@ -50,7 +50,7 @@ hikesList = {
 		"properties": {
 			"name": "Hahn Woods & Lullwater Park",
 			"number": 5,
-			"book": true
+			"distance": 2.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -61,7 +61,7 @@ hikesList = {
 		"properties": {
 			"name": "Herbert Taylor Park",
 			"number": 6,
-			"book": true
+			"distance": 1.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -72,7 +72,7 @@ hikesList = {
 		"properties": {
 			"name": "Morningside Nature Preserve",
 			"number": 7,
-			"book": true
+			"distance": 2.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -83,7 +83,7 @@ hikesList = {
 		"properties": {
 			"name": "East Palisades",
 			"number": 8,
-			"book": true
+			"distance": 4.25
 		},
 		"geometry": {
 			"type": "Point",
@@ -94,7 +94,7 @@ hikesList = {
 		"properties": {
 			"name": "West Palisades",
 			"number": 9,
-			"book": true
+			"distance": 4.25
 		},
 		"geometry": {
 			"type": "Point",
@@ -105,7 +105,7 @@ hikesList = {
 		"properties": {
 			"name": "Elwyn John Wildlife Sanctuary",
 			"number": 10,
-			"book": true
+			"distance": 1.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -116,7 +116,7 @@ hikesList = {
 		"properties": {
 			"name": "Frazer Forest & Deep Dene Park",
 			"number": 11,
-			"book": true
+			"distance": 2.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -127,7 +127,7 @@ hikesList = {
 		"properties": {
 			"name": "Glenlake Park & Decatur Cemetery",
 			"number": 12,
-			"book": true
+			"distance": 1.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -138,7 +138,7 @@ hikesList = {
 		"properties": {
 			"name": "Piedmont Park & Eastside Beltline Trail",
 			"number": 13,
-			"book": true
+			"distance": 2.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -149,7 +149,7 @@ hikesList = {
 		"properties": {
 			"name": "Tanyard Creek Park and Northside BeltLine Trail",
 			"number": 14,
-			"book": true
+			"distance": 2.25
 		},
 		"geometry": {
 			"type": "Point",
@@ -160,7 +160,7 @@ hikesList = {
 		"properties": {
 			"name": "Murphey Candler Park",
 			"number": 15,
-			"book": true
+			"distance": 1.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -171,7 +171,7 @@ hikesList = {
 		"properties": {
 			"name": "Outdoor Activity Center",
 			"number": 16,
-			"book": true
+			"distance": 1.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -182,7 +182,7 @@ hikesList = {
 		"properties": {
 			"name": "Cascade Springs Nature Preserve",
 			"number": 17,
-			"book": true
+			"distance": 2.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -193,7 +193,7 @@ hikesList = {
 		"properties": {
 			"name": "W.D. Thompson Park",
 			"number": 18,
-			"book": true
+			"distance": 1.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -204,7 +204,7 @@ hikesList = {
 		"properties": {
 			"name": "Atlanta Memorial Park",
 			"number": 19,
-			"book": true
+			"distance": 2.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -215,7 +215,7 @@ hikesList = {
 		"properties": {
 			"name": "Mercer University Nature Trail",
 			"number": 20,
-			"book": true
+			"distance": 1.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -226,7 +226,7 @@ hikesList = {
 		"properties": {
 			"name": "Boundary Waters Park",
 			"number": 21,
-			"book": true
+			"distance": 7.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -237,7 +237,7 @@ hikesList = {
 		"properties": {
 			"name": "Sweetwater Creek State Park",
 			"number": "22 & 23",
-			"book": true
+			"distance": "3.0 & 3.5"
 		},
 		"geometry": {
 			"type": "Point",
@@ -248,7 +248,7 @@ hikesList = {
 		"properties": {
 			"name": "Clinton Nature Preserve",
 			"number": 24,
-			"book": true
+			"distance": 3.75
 		},
 		"geometry": {
 			"type": "Point",
@@ -259,7 +259,7 @@ hikesList = {
 		"properties": {
 			"name": "Heritage Park",
 			"number": 25,
-			"book": true
+			"distance": 3.4
 		},
 		"geometry": {
 			"type": "Point",
@@ -270,7 +270,7 @@ hikesList = {
 		"properties": {
 			"name": "Melvin L. Newman Wetlands Center",
 			"number": 26,
-			"book": true
+			"distance": 0.75
 		},
 		"geometry": {
 			"type": "Point",
@@ -281,7 +281,7 @@ hikesList = {
 		"properties": {
 			"name": "Cochran Mill Park",
 			"number": 27,
-			"book": true
+			"distance": 5.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -292,7 +292,7 @@ hikesList = {
 		"properties": {
 			"name": "Cochran Mill Nature Center",
 			"number": 28,
-			"book": true
+			"distance": 3.75
 		},
 		"geometry": {
 			"type": "Point",
@@ -303,7 +303,7 @@ hikesList = {
 		"properties": {
 			"name": "Reynolds Nature Preserve",
 			"number": 29,
-			"book": true
+			"distance": 2.25
 		},
 		"geometry": {
 			"type": "Point",
@@ -314,7 +314,7 @@ hikesList = {
 		"properties": {
 			"name": "Line Creek Nature Area",
 			"number": 30,
-			"book": true
+			"distance": 2.65
 		},
 		"geometry": {
 			"type": "Point",
@@ -325,7 +325,7 @@ hikesList = {
 		"properties": {
 			"name": "Henderson Park",
 			"number": 31,
-			"book": true
+			"distance": 2.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -336,7 +336,7 @@ hikesList = {
 		"properties": {
 			"name": "Davidson-Arabia Mountain Nature Preserve",
 			"number": "32-36",
-			"book": true
+			"distance": "1.0 & 2.0 & 2.5 & 2.5 & 3.5"
 		},
 		"geometry": {
 			"type": "Point",
@@ -347,7 +347,7 @@ hikesList = {
 		"properties": {
 			"name": "Stone Mountain Park",
 			"number": "37-39",
-			"book": true
+			"distance": "2.0 & 6.0 & 1.5"
 		},
 		"geometry": {
 			"type": "Point",
@@ -358,7 +358,7 @@ hikesList = {
 		"properties": {
 			"name": "Yellow River Park",
 			"number": "40 & 41",
-			"book": true
+			"distance": "4.25 & 2.75"
 		},
 		"geometry": {
 			"type": "Point",
@@ -370,7 +370,7 @@ hikesList = {
 			"name": "Panola Mountain State Park",
 			"number": 42,
 			"note": "Summit only accessible via ranger-led hikes",
-			"book": true
+			"distance": 2.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -381,7 +381,7 @@ hikesList = {
 		"properties": {
 			"name": "Kennesaw Mountain National Battlefield Park",
 			"number": "43-45",
-			"book": true
+			"distance": "6.0 & 3.75 & 6.0"
 		},
 		"geometry": {
 			"type": "Point",
@@ -392,7 +392,7 @@ hikesList = {
 		"properties": {
 			"name": "Olde Rope Mill Park",
 			"number": 46,
-			"book": true
+			"distance": 12.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -403,7 +403,7 @@ hikesList = {
 		"properties": {
 			"name": "Autrey Mill Nature Preserve & Heritage Center",
 			"number": 47,
-			"book": true
+			"distance": 1.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -414,7 +414,7 @@ hikesList = {
 		"properties": {
 			"name": "Simpsonwood Conference & Retreat Center",
 			"number": 48,
-			"book": true
+			"distance": 2.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -425,7 +425,7 @@ hikesList = {
 		"properties": {
 			"name": "McDaniel Farm Park",
 			"number": 49,
-			"book": true
+			"distance": 2.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -436,7 +436,7 @@ hikesList = {
 		"properties": {
 			"name": "Leita Thompson Memorial Park",
 			"number": 50,
-			"book": true
+			"distance": 2.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -447,7 +447,7 @@ hikesList = {
 		"properties": {
 			"name": "Big Trees Forest Preserve",
 			"number": 51,
-			"book": true
+			"distance": 1.25
 		},
 		"geometry": {
 			"type": "Point",
@@ -458,7 +458,7 @@ hikesList = {
 		"properties": {
 			"name": "Dunwoody Nature Center",
 			"number": 52,
-			"book": true
+			"distance": 1.25
 		},
 		"geometry": {
 			"type": "Point",
@@ -469,7 +469,7 @@ hikesList = {
 		"properties": {
 			"name": "Cochran Shoals",
 			"number": 53,
-			"book": true
+			"distance": 7.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -480,7 +480,7 @@ hikesList = {
 		"properties": {
 			"name": "Sope Creek",
 			"number": 54,
-			"book": true
+			"distance": 4.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -491,7 +491,7 @@ hikesList = {
 		"properties": {
 			"name": "Johnson Ferry South",
 			"number": 55,
-			"book": true
+			"distance": 1.6
 		},
 		"geometry": {
 			"type": "Point",
@@ -502,7 +502,7 @@ hikesList = {
 		"properties": {
 			"name": "Johnson Ferry North",
 			"number": 56,
-			"book": true
+			"distance": 2.0
 		},
 		"geometry": {
 			"type": "Point",
@@ -513,7 +513,7 @@ hikesList = {
 		"properties": {
 			"name": "Gold Branch",
 			"number": 57,
-			"book": true
+			"distance": 3.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -524,7 +524,7 @@ hikesList = {
 		"properties": {
 			"name": "Vickery Creek",
 			"number": 58,
-			"book": true
+			"distance": 4.5
 		},
 		"geometry": {
 			"type": "Point",
@@ -535,7 +535,7 @@ hikesList = {
 		"properties": {
 			"name": "Island Ford",
 			"number": 59,
-			"book": true
+			"distance": 6.25
 		},
 		"geometry": {
 			"type": "Point",
@@ -546,55 +546,11 @@ hikesList = {
 		"properties": {
 			"name": "Jones Bridge",
 			"number": 60,
-			"book": true
+			"distance": 5.25
 		},
 		"geometry": {
 			"type": "Point",
 			"coordinates": [-84.239447,34.000953]
-		}
-	},{
-		"type": "Feature",
-		"properties": {
-			"name": "Glenn Creek Nature Preserve",
-			"number": null,
-			"book": false
-		},
-		"geometry": {
-			"type": "Point",
-			"coordinates": [-84.285483,33.781560]
-		}
-	},{
-		"type": "Feature",
-		"properties": {
-			"name": "Whittier Mills",
-			"number": null,
-			"book": false
-		},
-		"geometry": {
-			"type": "Point",
-			"coordinates": [-84.486387,33.809926]
-		}
-	},{
-		"type": "Feature",
-		"properties": {
-			"name": "Kirkwood Urban Forest",
-			"number": null,
-			"book": false
-		},
-		"geometry": {
-			"type": "Point",
-			"coordinates": [-84.32804,33.751974]
-		}
-	},{
-		"type": "Feature",
-		"properties": {
-			"name": "Dearborn Park",
-			"number": null,
-			"book": false
-		},
-		"geometry": {
-			"type": "Point",
-			"coordinates": [-84.286753,33.752769]
 		}
 	}
 	]

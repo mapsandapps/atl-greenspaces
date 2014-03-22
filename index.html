@@ -12,8 +12,14 @@
   <![endif]-->
   <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
+  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
+  <!--[if lt IE 9]>
+    <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
+  <![endif]-->
   <script type="text/javascript" src="http://mollietaylor.com/files/leaflet.ajax.js"></script>
-  <script type="text/javascript" src="hikes.js"></script>
+  <script type="text/javascript" src="book.js"></script>
+  <script type="text/javascript" src="parks.js"></script>
   <script type="text/javascript" src="../data/trees.js"></script>
   <style type="text/css">
   
@@ -28,13 +34,20 @@
     font-size: 24px;
   }
 
+  ul {
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
   #header {
     width: 100%;
     height: 36px;
   }
 
   #map {
-    width: 100%;
+    width: 80%;
     height: -mox-calc(100% - 36px - 50px - 50px); /*last value is for padding*/
     height: -webkit-calc(100% - 36px - 50px - 50px);
     height: calc(100% - 36px - 50px - 50px);
@@ -53,8 +66,7 @@
 </div>
 <div id="map"></div>
 <div id="links">
-  Map icons provided by <a href="http://mapicons.nicolasmollet.com/">Nicolas Mollet, Axel Rodriguez, and Datz Magazine</a>.<br>
-  Champion Trees data from <a href="http://treesatlanta.org/our-programs/atlantas-champion-trees/">Trees Atlanta</a>.<br>
+
 </div>
 
 <script type="text/javascript">
@@ -89,18 +101,6 @@
     popupAnchor: [0, -37]
   });
 
-
-  // map.locate({setView: false, watch: true})
-  //   .on('locationfound', function(e){
-  //       var marker = L.marker([e.latitude, e.longitude], {icon: hereIcon})
-  //       .bindPopup('You are here');
-  //       map.addLayer(marker);
-  //   })
-  //   .on('locationerror', function(e){
-  //       console.log(e);
-  //       alert("Location access denied.");
-  //   });
-
   function onEachHike(feature, layer) {
     var chapterNum = function() {
       if (typeof feature.properties.number === 'number') {
@@ -120,7 +120,21 @@
       };
     };
 
-    layer.bindPopup(feature.properties.name + chapterNum(feature.properties.number) + note(feature.properties.note))
+    layer.bindPopup("<b><a href='http://hikingatlanta.com/get-the-guidebook-or-app/' target='_blank'>" + 
+      feature.properties.name + "</a></b>" + 
+      chapterNum(feature.properties.number) +
+      "<br>" + 
+      feature.properties.distance +
+      " miles" + 
+      note(feature.properties.note) +
+      "<br>In the guidebook, you will find:" +
+      "<ul><li>Driving directions & trailhead access</li>" +
+      "<li>Public transportation access information</li>" +
+      "<li>Hike distance, rating, facilities, and fees</li>" +
+      "<li>Locations & descriptions of sentinel and champion trees along the hike route</li>" +
+      "<li>Turn-by-turn hiking directions</li>" +
+      "<li>Trail maps</li></ul>" +
+      "<a href='http://hikingatlanta.com/get-the-guidebook-or-app/' target='_blank'>Get the Guidebook or App!</a>")
   };
 
   var treesLayer = L.geoJson(trees, {
@@ -135,34 +149,54 @@
   var hikeLayer = L.geoJson(hikesList, {
     onEachFeature: onEachHike,
     pointToLayer: function(feature, latlng) {
-      // return L.marker(latlng, {icon: bookIcon});
-      switch (feature.properties.book) {
-        case true: return L.marker(latlng, {icon: bookIcon});
-        case false: return L.marker(latlng, {icon: webIcon});
-      }
+      return L.marker(latlng, {icon: bookIcon});
+    }
+  });
+
+  var parkLayer = L.geoJson(parksList, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup(feature.properties.name + 
+        "<br>" + 
+        feature.properties.type + 
+        "<br><a href='" + 
+        feature.properties.link + 
+        "' target='_blank'>Click here for more information</a>");
+    },
+    pointToLayer: function(feature, latlng) {
+      return L.marker(latlng, {icon: webIcon});
     }
   });
 
   var map = L.map('map', {
     center: new L.LatLng(33.75, -84.38), 
     zoom: 10,
-    layers: [hikeLayer, treesLayer]
+    layers: [hikeLayer, parkLayer, treesLayer],
+    maxBounds: [
+      [33.3, -84.9],
+      [34.2, -84.0]
+    ]
   });
 
   var overlayMaps = {
-    "Greenspaces": hikeLayer,
-    "Champion Trees": treesLayer
+    "<img src='book.png' height=24>In the Book": hikeLayer,
+    "<img src='world.png' height=24>Other Greenspaces": parkLayer,
+    "<img src='../arbol.png' height=24>Champion Trees": treesLayer
   };
 
+  L.control.locate({
+    setView: false,
+    metric: false
+  }).addTo(map);
   L.control.layers(null, overlayMaps, {
     collapsed: false
   }).addTo(map);
 
   // or tiles #7:
   L.tileLayer('http://tile.cloudmade.com/d2268fb4d6a84b33b508fa5640063baf/997/256/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    attribution: '<a href="http://proximityviz.com/">Proximity Viz</a> | Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> | Imagery © <a href="http://cloudmade.com">CloudMade</a> | Map icons provided by <a href="http://mapicons.nicolasmollet.com/" target="_blank">Nicolas Mollet, Axel Rodriguez, and Datz Magazine</a> | Champion Trees data from <a href="http://treesatlanta.org/our-programs/atlantas-champion-trees/" target="_blank">Trees Atlanta</a>',
     maxZoom: 18
   }).addTo(map);
+  // map.attributionControl.addAttribution("Champion Trees data from <a href='http://treesatlanta.org/our-programs/atlantas-champion-trees/' target='_blank'>Trees Atlanta</a>");
 
 </script>
 
