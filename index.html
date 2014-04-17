@@ -169,11 +169,11 @@
   var map = L.map('map', {
     center: new L.LatLng(33.75, -84.38), 
     zoom: 10,
-    layers: [hikeLayer, parkLayer, treesLayer],
-    maxBounds: [
-      [33.3, -84.9],
-      [34.2, -84.0]
-    ]
+    // maxBounds: [
+    //   [33.3, -84.9],
+    //   [34.2, -84.0]
+    // ],
+    layers: [hikeLayer, parkLayer, treesLayer]
   });
 
   var overlayMaps = {
