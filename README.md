@@ -12,5 +12,4 @@ What the files are
 ```
 <iframe src="http://mollietaylor.com/skills/js/leaflet/atl-greenspaces/mini.html?33.809926,-84.486387" height="400" width="400"></iframe>
 ```
-<iframe src="http://mollietaylor.com/skills/js/leaflet/atl-greenspaces/mini.html?33.809926,-84.486387" height="400" width="400"></iframe>
 To see this in use, [click here](http://hikingatlanta.com/atlanta-greenspaces/whittier-mills-park/).
