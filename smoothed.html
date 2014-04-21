@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+  <title>Atlanta Hikes</title>
+  <link rel="icon" 
+    type="image/png" 
+    href="http://mollietaylor.com/favicon.png">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+  <![endif]-->
+  <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="../files/data/trees.js"></script>
+  <script type="text/javascript" src="smoothed.js"></script>
+  <style type="text/css">
+  #map {
+    height: 420px;
+  }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script type="text/javascript">
+
+  var patt = /.*(\?)/;
+  var URLCoords = window.location.href.replace(patt, "");
+  var split = URLCoords.split(",");
+  if ( URLCoords.charAt(0) == 'h' | URLCoords.charAt(0) == 'f' ) {
+    var startLon = -84.4;
+    var startLat = 33.8;
+    var startZoom = 12;
+  } else {
+    var startLat = split[0];
+    var startLon = split[1];
+    var startZoom = split[2];
+  };
+
+  var treesIcon = L.icon({
+    iconUrl: 'arbol.png',
+    iconSize: [21, 25],
+    iconAnchor: [11, 25],
+    popupAnchor: [0, -25]
+  });
+
+  var map = L.map('map').setView([startLat, startLon], startZoom);
+
+  function onEachHike(feature, layer) {
+    layer.bindPopup(feature.properties.name + "<br>Length of hike: " + feature.properties.distance);
+  };
+
+  var treesLayer = L.geoJson(trees, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup(feature.properties.Name + "<br>" + feature.properties.Description);
+    },
+    pointToLayer: function(feature, latlng) {
+      return L.marker(latlng, {icon: treesIcon});
+    }
+  }).addTo(map);
+
+  var hikeLayer = L.geoJson(smoothed, {
+    onEachFeature: onEachHike,
+    style: {color: '#3498db',
+      opacity: 1},
+  }).addTo(map);
+
+  L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
+    attribution: '<a href="http://proximityviz.com/">Proximity Viz</a> | Map icons provided by <a href="http://mapicons.nicolasmollet.com/" target="_blank">Nicolas Mollet and Axel Rodriguez</a> | Champion Trees data from <a href="http://treesatlanta.org/our-programs/atlantas-champion-trees/" target="_blank">Trees Atlanta</a> | Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />',
+    maxZoom: 18
+  }).addTo(map);
+</script>
+
+
+
+</body>
+</html>

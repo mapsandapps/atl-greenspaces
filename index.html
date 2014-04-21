@@ -5,7 +5,7 @@
   <title>Atlanta Greenspaces</title>
   <link rel="icon" 
     type="image/png" 
-    href="http://mollietaylor.com/favicon.png">
+    href="http://proximityviz.com/favicon.png">
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
   <!--[if lte IE 8]>
       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
@@ -17,10 +17,10 @@
   <!--[if lt IE 9]>
     <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
   <![endif]-->
-  <script type="text/javascript" src="http://mollietaylor.com/files/leaflet.ajax.js"></script>
+  <!-- <script type="text/javascript" src="http://proximityviz.com/files/leaflet.ajax.js"></script> -->
   <script type="text/javascript" src="book.js"></script>
   <script type="text/javascript" src="parks.js"></script>
-  <script type="text/javascript" src="../data/trees.js"></script>
+  <script type="text/javascript" src="../files/data/trees.js"></script>
   <style type="text/css">
   
   html, body{
@@ -61,9 +61,10 @@
 </div>
 
 <script type="text/javascript">
+  console.log("redirect is working");
 
   var treesIcon = L.icon({
-    iconUrl: '../arbol.png',
+    iconUrl: 'arbol.png',
     iconSize: [21, 25],
     iconAnchor: [11, 25],
     popupAnchor: [0, -25]
@@ -78,13 +79,6 @@
 
   var webIcon = L.icon({
     iconUrl: 'world.png',
-    iconSize: [32, 37],
-    iconAnchor: [16, 37],
-    popupAnchor: [0, -37]
-  });
-
-  var hereIcon = L.icon({
-    iconUrl: 'youarehere-2.png',
     iconSize: [32, 37],
     iconAnchor: [16, 37],
     popupAnchor: [0, -37]
@@ -169,7 +163,7 @@
   var overlayMaps = {
     "<img src='book.png' height=24>In the Book": hikeLayer,
     "<img src='world.png' height=24>Other Greenspaces": parkLayer,
-    "<img src='../arbol.png' height=24>Champion Trees": treesLayer
+    "<img src='arbol.png' height=24>Champion Trees": treesLayer
   };
 
   L.control.locate({
@@ -180,8 +174,8 @@
     collapsed: false
   }).addTo(map);
 
-  L.tileLayer('http://{s}.tiles.mapbox.com/v3/mollie.i0kg8j98/{z}/{x}/{y}.png', {
-    attribution: '<a href="http://proximityviz.com/">Proximity Viz</a> | Base map <a href="https://www.mapbox.com/about/maps/">© Mapbox © OpenStreetMap</a> | Map icons provided by <a href="http://mapicons.nicolasmollet.com/" target="_blank">Nicolas Mollet, Axel Rodriguez, and Datz Magazine</a> | Champion Trees data from <a href="http://treesatlanta.org/our-programs/atlantas-champion-trees/" target="_blank">Trees Atlanta</a>',
+  L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
+    attribution: '<a href="http://proximityviz.com/">Proximity Viz</a> | Map icons provided by <a href="http://mapicons.nicolasmollet.com/" target="_blank">Nicolas Mollet, Axel Rodriguez, and Datz Magazine</a> | Champion Trees data from <a href="http://treesatlanta.org/our-programs/atlantas-champion-trees/" target="_blank">Trees Atlanta</a> | Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />',
     maxZoom: 18
   }).addTo(map);
 

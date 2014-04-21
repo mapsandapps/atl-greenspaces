@@ -4,6 +4,17 @@ parksList = {
 	{
 		"type": "Feature",
 		"properties": {
+			"name": "Brownwood Park",
+			"type": "Community Park",
+			"link": "http://hikingatlanta.com/atlanta-greenspaces/brownwood-park/"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [-84.347,33.736]
+		}
+	},{
+		"type": "Feature",
+		"properties": {
 			"name": "Agnes Scott",
 			"type": "PATH Trail/College Campus",
 			"link": "http://hikingatlanta.com/agnes-scott/"
