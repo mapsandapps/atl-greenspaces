@@ -2,13 +2,16 @@
 <meta charset="utf-8">
 <html>
 <head>
-  <link rel="stylesheet" href="http://mollietaylor.com/files/leaflet.draw.css" />
+  <link rel="icon" 
+    type="image/png" 
+    href="http://proximityviz.com/favicon.png">
+  <link rel="stylesheet" href="http://proximityviz.com/files/leaflet.draw.css" />
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
   <!--[if lte IE 8]>
       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
   <![endif]-->
   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-  <script src="http://mollietaylor.com/files/leaflet.draw.js"></script>
+  <script src="http://proximityviz.com/files/leaflet.draw.js"></script>
   <script type="text/javascript" src="../skills/js/leaflet/parks/trails.js"></script>
   <script type="text/javascript" src="smoothed.js"></script>
 
@@ -17,6 +20,7 @@
     height: 600px;
   }
   </style>
+    <script type="text/javascript" src="http://proximityviz.com/files/analytics.js"></script>
 </head>
 <body>
 
@@ -33,20 +37,16 @@
 // * terrain map option via layer control
 
 
+  // // map:
+  // var map = new L.map('map', {
+  //   center: [33.78,-84.32],
+  //   zoom: 11
+  // });
+
   // map:
   var map = new L.map('map', {
-    center: [33.81, -84.4],
-    zoom: 15
-  });
-
-  var hikeLayer = L.geoJson(trails, {
-    style: {color: '#3498db',
-      opacity: 0.9},
-  }).addTo(map);
-
-  var smoothedLayer = L.geoJson(smoothed, {
-    style: {color: '#7400f0',
-      opacity: 0.9},
+    center: [33.78623, -84.41627],
+    zoom: 12
   });
 
   // editable layers:
@@ -102,14 +102,13 @@
 
   map.attributionControl.addAttribution("Data and map by <a href='http://proximityviz.com/'>Proximity Viz</a>");
 
-  streetMap = L.tileLayer('http://tile.cloudmade.com/d2268fb4d6a84b33b508fa5640063baf/997/256/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://cloudmade.com">CloudMade</a>',
-    maxZoom: 18,
-    opacity: 0.5
+  streetMap = L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
+    attribution: '<a href="http://proximityviz.com/">Proximity Viz</a> | Map icons provided by <a href="http://mapicons.nicolasmollet.com/" target="_blank">Nicolas Mollet, Axel Rodriguez, and Datz Magazine</a> | Champion Trees data from <a href="http://treesatlanta.org/our-programs/atlantas-champion-trees/" target="_blank">Trees Atlanta</a> | Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />',
+    maxZoom: 18
   }).addTo(map);
 
-  satelliteMap = L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {
-    attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">'
+  satelliteMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
   });
 
   var baseMaps = {
@@ -118,8 +117,6 @@
   };
 
   var maps = {
-    "Hikes": hikeLayer,
-    "Smoothed": smoothedLayer,
     "Drawn": drawnItems
   };
 
@@ -128,6 +125,7 @@
   }).addTo(map);
 
 </script>
+
 
 </body>
 </html>

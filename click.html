@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+  <link rel="stylesheet" href="http://proximityviz.com/files/leaflet.draw.css" />
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+  <![endif]-->
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+  <style type="text/css">
+  #map {
+    height: 600px;
+  }
+  </style>
+    <script type="text/javascript" src="http://proximityviz.com/files/analytics.js"></script>
+</head>
+<body>
+
+<h1></h1>
+<div id="map"></div>
+<script type="text/javascript">
+
+  // map:
+  var map = new L.map('map', {
+    center: [33.76, -84.43],
+    zoom: 12
+  });
+
+  var popup = L.popup();
+
+  function onMapClick(e) {
+      popup
+          .setLatLng(e.latlng)
+          .setContent(e.latlng.lng.toString() + ", " + e.latlng.lat.toString() + "<br>" + e.latlng.toString())
+          .openOn(map);
+  }
+
+  map.on('click', onMapClick);
+
+  map.attributionControl.addAttribution("Data and map by <a href='http://proximityviz.com/'>Proximity Viz</a>");
+
+  var streetMap = L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
+    attribution: '<a href="http://proximityviz.com/">Proximity Viz</a> | Map icons provided by <a href="http://mapicons.nicolasmollet.com/" target="_blank">Nicolas Mollet, Axel Rodriguez, and Datz Magazine</a> | Champion Trees data from <a href="http://treesatlanta.org/our-programs/atlantas-champion-trees/" target="_blank">Trees Atlanta</a> | Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />',
+    maxZoom: 18
+  }).addTo(map);
+
+  var osm = new L.TileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+  });
+
+  var satelliteMap = L.tileLayer('http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png', {
+    attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">'
+  });
+
+  var baseMaps = {
+    "Street": streetMap,
+    "OSM": osm,
+    "Aerial": satelliteMap
+  };
+
+  L.control.layers(baseMaps, null, {
+    collapsed: false
+  }).addTo(map);
+
+</script>
+
+
+</body>
+</html>
